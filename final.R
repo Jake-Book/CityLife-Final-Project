@@ -23,22 +23,32 @@ setwd("C:/Users/jakeb/OneDrive/Desktop/sta_215")
 ############### Table 1: descriptive statistics    ####################   
 ##################################################################################
 table(dataset$land_locked)
-table(dataset$long_trm)
+table(dataset$football)
 table(dataset$pov_over10)
 
 
+max(dataset$land_locked)
+min(dataset$land_locked)
+max(dataset$football)
+min(dataset$football)
+max(dataset$pov_over10)
+min(dataset$pov_over10)
+
 mean(dataset$gdp_per_capital)
 sd(dataset$gdp_per_capital)
+max(dataset$gdp_per_capital)
+min(dataset$gdp_per_capital)
 
 mean(dataset$crime_avg)
 sd(dataset$crime_avg)
-
+max(dataset$crime_avg)
+min(dataset$crime_avg)
 
 ##################################################################################
 #################### Figure 1: boxplot             ####################   
 ##################################################################################
 
-boxplot(tour_inf ~ pov_over10, data = dataset)
+boxplot(gdp_per_capital ~ pov_over10, data = dataset)
 
 anova <- aov(pov_avg ~ pov_over10, data = dataset)
 
@@ -71,6 +81,6 @@ abline(h = 0, col = "red")
 ##################################################################################
 ####################  Table 2: contingency table                ####################   
 ##################################################################################
-table(dataset$lon_trm, dataset$land_locked)
+table(dataset$football, dataset$land_locked)
 
 chisq.test(table(dataset$lon_trm, dataset$land_locked))
